@@ -19,7 +19,7 @@ void writeToFile(FILE *fptr, struct fileDetails *fileDetails) {
     fclose(fptr);
 }
 
-void readAccountDetailsFile(struct fileDetails *fileDetails) {
+void readAccountDetailsFile() {
     struct fileDetails dataFromAccount_detailsfile;
     FILE *FileOpenPtr = fopen("account_details.txt", "r");
 
@@ -40,6 +40,7 @@ void readAccountDetailsFile(struct fileDetails *fileDetails) {
 void printOnConsole() {
     printf("1. Create account\n");
     printf("2. View account details\n");
+    printf("3. Exit\n");
 }
 
 void createAccount(char *userName, double *accountNumber, struct fileDetails *fileDetails) {
@@ -52,7 +53,7 @@ void createAccount(char *userName, double *accountNumber, struct fileDetails *fi
     strcpy(fileDetails->userName, userName);
     fileDetails->accountNumber = *accountNumber;
 
-    printf("You have successfully created an account\n%s and %.2lf are your account credentials and all data are documented in a file\n",
+    printf("You have successfully created an account.\n%s and %.2lf are your account credentials and all data are documented in a file.\n",
            userName, *accountNumber);
 }
 
@@ -62,23 +63,27 @@ int main() {
     double accountNumber;
     struct fileDetails fileDetails;
 
-    printOnConsole();
+    while (1) {
+        printOnConsole();
 
-    printf("Enter your choice: ");
-    scanf("%d", &userInput);
+        printf("Enter your choice: ");
+        scanf("%d", &userInput);
 
-    FILE *fptr = fopen("account_details.txt", "w");
+        if (userInput == 3) {
+            printf("Exiting the program.\n");
+            break;
+        }
 
-    switch (userInput) {
-        case 1:
+        FILE *fptr = NULL;
+        if (userInput == 1) {
+            fptr = fopen("account_details.txt", "w");
             createAccount(userName, &accountNumber, &fileDetails);
             writeToFile(fptr, &fileDetails);
-            break;
-        case 2:
-            readAccountDetailsFile(&fileDetails);
-            break;
-        default:
-            printf("Invalid choice\n");
+        } else if (userInput == 2) {
+            readAccountDetailsFile();
+        } else {
+            printf("Invalid choice. Please try again.\n");
+        }
     }
 
     return 0;
