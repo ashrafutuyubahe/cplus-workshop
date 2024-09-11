@@ -6,7 +6,7 @@ using namespace std;
 int main(){
  
  //vectors in c++
-  vector<string> studNames={"john","luck","mathew",1};
+  vector<string> studNames={"john","luck","mathew"};
     string t_name;
   	
   
@@ -28,6 +28,4 @@ int main(){
 	
 	
 	return 0;
-	
-	
 }
