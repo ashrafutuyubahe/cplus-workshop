@@ -8,6 +8,16 @@ using namespace std;
 	  string patronAddress;
 	  	
 	  };
+	  
+	  struct bookDetails{
+	  	
+	  	string bookTitle;
+		 string bookAuthor;
+		 string bookISBN;
+		 bool isAvailable= true;
+	  };
+	  
+	  
 class Patron{
 	
 //	private:
@@ -64,6 +74,89 @@ private:
 };
 
 
+class LibraryItem {
+public:
+    virtual void checkout() = 0;
+    virtual void returnItem() = 0;
+};
+
+
+
+class Book : public LibraryItem {
+private:
+    string bookTitle;
+    string bookAuthor;
+    string bookISBN;
+    bool isAvailable = true;
+
+public:
+    void checkout() override {
+        if (isAvailable) {
+            cout << "Checking out book: " << bookTitle << endl;
+            isAvailable = false;
+        } else {
+            cout << "Book is not available" << endl;
+        }
+    }
+
+    void returnItem() override {
+        cout << "Returning book: " << bookTitle << endl;
+        isAvailable = true;
+    }
+
+    void setBookTitle(const string &title) {
+        bookTitle = title;
+    }
+
+    void setBookAuthor(const string &author) {
+        bookAuthor = author;
+    }
+
+    void setBookISBN(const string &isbn) {
+        bookISBN = isbn;
+    }
+
+    void getBookDetails() const {
+        cout << "Book title: " << bookTitle
+             << ", Author: " << bookAuthor
+             << ", ISBN: " << bookISBN << endl;
+    }
+};
+
+class Magazine : public LibraryItem {
+public:
+    void checkout() override {
+        cout << "Checking out magazine" << endl;
+    }
+
+    void returnItem() override {
+        cout << "Returning magazine" << endl;
+    }
+};
+
+
+void promptBookDetails(string &bookTitle, string &bookAuthor, string &bookISBN) {
+    Book setBookDetails;
+
+    cout << "1. Add a Book title: \n";
+    cin >> bookTitle;
+    setBookDetails.setBookTitle(bookTitle);
+
+    cout << "2. Add book author: \n";
+    cin >> bookAuthor;
+    setBookDetails.setBookAuthor(bookAuthor);
+
+    cout << "3. Add book ISBN: \n";
+    cin >> bookISBN;
+    setBookDetails.setBookISBN(bookISBN);
+
+    cout << "Book added successfully:\n";
+    setBookDetails.getBookDetails();
+}
+
+
+
+
 
  void printOnConsole( int *userChoice){
  	cout << "  __________________Welcome to the Library Management System_______________  " <<endl <<endl;
@@ -71,7 +164,7 @@ private:
     cout << "Please choose an option:  \n";
     cout << "1. Add Patron\n";
     cout << "2.  Add Book \n";
-    cout << "3. ACheck Out Book\n";
+    cout << "3. Check Out Book\n";
     cout << "4. Return Book\n"; 
 	cout << "5. Exit\n";
 	
@@ -100,6 +193,8 @@ private:
    
  };
  
+ 
+ 
 
 int main(){
 	int userChoice;	
@@ -108,6 +203,8 @@ int main(){
 	printOnConsole(&userChoice);
 	struct patronDetails setdetails;
 	Patron patronClass;
+	Book bookClass;
+	struct bookDetails detailOfBook;
 	
 	
 	
@@ -118,7 +215,7 @@ int main(){
     	break;
     	
     	case 2:
-    	cout<< "sdgf";
+    	promptBookDetails(detailOfBook.bookTitle,detailOfBook.bookAuthor,detailOfBook.bookTitle);
     	break;
     	
     	case 3:
