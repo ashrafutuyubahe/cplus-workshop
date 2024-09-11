@@ -139,20 +139,23 @@ void promptBookDetails(string &bookTitle, string &bookAuthor, string &bookISBN) 
     Book setBookDetails;
 
     cout << "1. Add a Book title: \n";
-    cin >> bookTitle;
+    getline(cin,bookTitle);
+//    cin >> bookTitle;
     setBookDetails.setBookTitle(bookTitle);
 
     cout << "2. Add book author: \n";
-    cin >> bookAuthor;
+     getline(cin,bookAuthor);
     setBookDetails.setBookAuthor(bookAuthor);
 
     cout << "3. Add book ISBN: \n";
-    cin >> bookISBN;
+     getline(cin,bookISBN);
     setBookDetails.setBookISBN(bookISBN);
 
     cout << "Book added successfully:\n";
     setBookDetails.getBookDetails();
+    cin.ignore();
 }
+
 
 
 
