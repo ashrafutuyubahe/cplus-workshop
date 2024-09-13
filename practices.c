@@ -17,11 +17,7 @@ int main(){
   
    
 
-// printf("please enter your age : \n");
-//scanf("%d",&userAge);  
-//     
-// printf("are you a homeless person? : \n");
-//   scanf("%s",&isuserCurrentlocationExists);
+
    
    for(int a=0;a<lenght;a++){
    

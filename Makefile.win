@@ -4,12 +4,12 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = linkedlist.o linkedlist.o
-LINKOBJ  = linkedlist.o linkedlist.o
+OBJ      = "../Desktop/vacance/c++\ projects/c++_Basics/studparts.o" student_mngs.o
+LINKOBJ  = "../Desktop/vacance/c++ projects/c++_Basics/studparts.o" student_mngs.o
 LIBS     = -L"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib" -L"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include"
 CXXINCS  = -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++"
-BIN      = DSA_project.exe
+BIN      = task_management_systme.exe
 CXXFLAGS = $(CXXINCS) 
 CFLAGS   = $(INCS) 
 DEL      = C:\Program Files (x86)\Embarcadero\Dev-Cpp\devcpp.exe INTERNAL_DEL
@@ -24,8 +24,8 @@ clean: clean-custom
 $(BIN): $(OBJ)
 	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
 
-linkedlist.o: linkedlist.cpp
-	$(CPP) -c linkedlist.cpp -o linkedlist.o $(CXXFLAGS)
+"../Desktop/vacance/c++\ projects/c++_Basics/studparts.o": ../Desktop/vacance/c++\ projects/c++_Basics/studparts.cpp
+	$(CPP) -c "../Desktop/vacance/c++ projects/c++_Basics/studparts.cpp" -o "../Desktop/vacance/c++ projects/c++_Basics/studparts.o" $(CXXFLAGS)
 
-linkedlist.o: linkedlist.cpp
-	$(CPP) -c linkedlist.cpp -o linkedlist.o $(CXXFLAGS)
+student_mngs.o: student_mngs.cpp
+	$(CPP) -c student_mngs.cpp -o student_mngs.o $(CXXFLAGS)
