@@ -12,7 +12,14 @@ int main(){
 		k=(*ptr);
 	}
 	
-	printf("%d",k);
+	printf("%d \n",k);
+	
+	
+for(l=0;l<5;l++){
+
+
+printf("%d \n",l);
+}
 
 return 0;
 }
