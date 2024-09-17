@@ -9,9 +9,11 @@ for(j=0;j<5;j++){
 
   if(i>=j){
   	printf("*");
+  } else{
+  	printf("+");
   }
   
-  printf("+");
+  
 }
 printf("\n");
 }
